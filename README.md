@@ -1,5 +1,5 @@
 # docker-kotlin-gradle-ktor-postgres
-
+[![build main branch](https://github.com/MikAoJk/docker-kotlin-gradle-ktor-postgres/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/MikAoJk/docker-kotlin-gradle-ktor-postgres/actions/workflows/build.yml)
 ## Technologies used
 * JDK 17
 * Kotlin
