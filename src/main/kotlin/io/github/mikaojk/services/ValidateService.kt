@@ -7,7 +7,7 @@ import kotlinx.coroutines.GlobalScope
 
 
 class ValidateService {
-    @OptIn(DelicateCoroutinesApi::class)
+    @DelicateCoroutinesApi
     fun executeValidateData(validationData: ValidationData, database: DatabaseInterface): ValidationResult =
         with(GlobalScope) {
             if (database.validData(validationData.data)) {

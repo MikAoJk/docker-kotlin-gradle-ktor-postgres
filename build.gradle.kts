@@ -6,15 +6,15 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 group = "io.github.MikAoJk"
 version = "1.0.0-SNAPSHOT"
 
-val ktorVersion = "1.6.7"
+val ktorVersion = "1.6.8"
 val junitJupiterVersion = "5.8.2"
-val logbackVersion = "1.2.10"
+val logbackVersion = "1.2.11"
 val logstashEncoderVersion = "7.0.1"
 val kotlinVersion = "1.6.10"
 val postgresqlVersion = "42.3.1"
 val hikariCPVersion = "5.0.1"
-val flywayVersion= "8.5.0"
-val otjPgEmbeddedVersion = "0.13.4"
+val flywayVersion= "8.5.2"
+val otjPgEmbeddedVersion = "1.0.0"
 
 
 plugins {
@@ -26,7 +26,6 @@ plugins {
 repositories {
     mavenCentral()
 }
-
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")

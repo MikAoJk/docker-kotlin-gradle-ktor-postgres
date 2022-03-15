@@ -7,6 +7,7 @@
 * Docker
 * Ktor
 * Postgres
+* Editorconfig
 
 ## Getting started
 ## Running application locally
@@ -35,7 +36,7 @@ Go to src/main/kotlin/Bootstrap.kt and run it
 For testing the endpoint ValidateDataApi
 You need a tool to send a request and to inspect the repsonse
 A tool you can use is Postman: https://www.postman.com/downloads/
-The endpoint is currently available at http://$yourlocalhost/v1/validate when running the application locally 
+The endpoint is currently available at http://$yourlocalhost/v1/validate when running the application locally
 Set the body in the request, example: `{"data":"DATA"}` and profit
 
 Example of a request:
