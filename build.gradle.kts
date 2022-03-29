@@ -17,6 +17,7 @@ val postgresqlVersion = "42.3.1"
 val hikariCPVersion = "5.0.1"
 val flywayVersion= "8.5.4"
 val otjPgEmbeddedVersion = "1.0.0"
+val postgresVersion = "42.3.3"
 
 
 plugins {
@@ -38,6 +39,7 @@ dependencies {
 
     implementation("com.zaxxer:HikariCP:$hikariCPVersion")
     implementation("org.flywaydb:flyway-core:$flywayVersion")
+    implementation("org.postgresql:postgresql:$postgresVersion")
 
 
     implementation("ch.qos.logback:logback-classic:$logbackVersion")

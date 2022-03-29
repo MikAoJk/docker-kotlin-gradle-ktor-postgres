@@ -13,10 +13,10 @@ import io.ktor.routing.routing
 import io.ktor.server.testing.TestApplicationEngine
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
-import org.junit.Test
 import org.junit.jupiter.api.Assertions.assertEquals
 import io.github.mikaojk.services.ValidationData
 import io.github.mikaojk.services.ValidationResult
+import org.junit.jupiter.api.Test
 
 internal class ValidateDataApiTest {
 
@@ -45,8 +45,8 @@ internal class ValidateDataApiTest {
 
             with(handleRequest(HttpMethod.Post, "/v1/validate")
             {
-                addHeader("Accept", "io/github/mikaojk/application/json")
-                addHeader("Content-Type", "io/github/mikaojk/application/json")
+                addHeader("Accept", "application/json")
+                addHeader("Content-Type", "application/json")
                 setBody(objectMapper.writeValueAsString(validationData))
 
             }) {
@@ -76,8 +76,8 @@ internal class ValidateDataApiTest {
 
             with(handleRequest(HttpMethod.Post, "/v1/validate")
             {
-                addHeader("Accept", "io/github/mikaojk/application/json")
-                addHeader("Content-Type", "io/github/mikaojk/application/json")
+                addHeader("Accept", "application/json")
+                addHeader("Content-Type", "application/json")
                 setBody(objectMapper.writeValueAsString(validationData))
 
             }) {

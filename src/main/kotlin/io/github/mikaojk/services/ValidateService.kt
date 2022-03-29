@@ -2,12 +2,10 @@ package io.github.mikaojk.services
 
 import io.github.mikaojk.db.DatabaseInterface
 import io.github.mikaojk.db.validData
-import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 
 
 class ValidateService {
-    @DelicateCoroutinesApi
     fun executeValidateData(validationData: ValidationData, database: DatabaseInterface): ValidationResult =
         with(GlobalScope) {
             if (database.validData(validationData.data)) {
