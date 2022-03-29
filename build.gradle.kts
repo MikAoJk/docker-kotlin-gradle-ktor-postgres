@@ -6,6 +6,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 group = "io.github.MikAoJk"
 version = "1.0.0-SNAPSHOT"
 
+val jvmTargetVersion = "17"
+
 val ktorVersion = "1.6.8"
 val junitJupiterVersion = "5.8.2"
 val logbackVersion = "1.2.11"
@@ -13,7 +15,7 @@ val logstashEncoderVersion = "7.0.1"
 val kotlinVersion = "1.6.10"
 val postgresqlVersion = "42.3.1"
 val hikariCPVersion = "5.0.1"
-val flywayVersion= "8.5.2"
+val flywayVersion= "8.5.4"
 val otjPgEmbeddedVersion = "1.0.0"
 
 
@@ -53,7 +55,11 @@ dependencies {
 
 tasks {
     withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "17"
+        kotlinOptions.jvmTarget = jvmTargetVersion
+    }
+
+    named<KotlinCompile>("compileTestKotlin") {
+        kotlinOptions.jvmTarget = jvmTargetVersion
     }
 
     withType<ShadowJar> {

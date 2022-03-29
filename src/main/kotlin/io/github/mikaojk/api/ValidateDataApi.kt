@@ -8,7 +8,9 @@ import io.ktor.routing.Routing
 import io.ktor.routing.post
 import io.github.mikaojk.services.ValidateService
 import io.github.mikaojk.services.ValidationData
+import kotlinx.coroutines.DelicateCoroutinesApi
 
+@OptIn(DelicateCoroutinesApi::class)
 fun Routing.registerValidateDataApi(database: DatabaseInterface) {
     post("/v1/validate") {
 
