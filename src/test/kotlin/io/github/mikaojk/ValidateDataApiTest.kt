@@ -4,18 +4,18 @@ import io.github.mikaojk.api.registerValidateDataApi
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
-import io.ktor.application.install
-import io.ktor.features.ContentNegotiation
 import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
-import io.ktor.jackson.jackson
-import io.ktor.routing.routing
 import io.ktor.server.testing.TestApplicationEngine
 import io.ktor.server.testing.handleRequest
 import io.ktor.server.testing.setBody
 import org.junit.jupiter.api.Assertions.assertEquals
 import io.github.mikaojk.services.ValidationData
 import io.github.mikaojk.services.ValidationResult
+import io.ktor.serialization.jackson.jackson
+import io.ktor.server.application.install
+import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.server.routing.routing
 import org.junit.jupiter.api.Test
 
 internal class ValidateDataApiTest {

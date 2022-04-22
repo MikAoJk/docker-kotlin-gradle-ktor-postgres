@@ -8,21 +8,21 @@ version = "1.0.0-SNAPSHOT"
 
 val jvmTargetVersion = "17"
 
-val ktorVersion = "1.6.8"
+val ktorVersion = "2.0.0"
 val junitJupiterVersion = "5.8.2"
 val logbackVersion = "1.2.11"
 val logstashEncoderVersion = "7.0.1"
 val kotlinVersion = "1.6.10"
 val postgresqlVersion = "42.3.1"
 val hikariCPVersion = "5.0.1"
-val flywayVersion= "8.5.4"
+val flywayVersion= "8.5.7"
 val otjPgEmbeddedVersion = "1.0.0"
 val postgresVersion = "42.3.3"
 
 
 plugins {
     java
-    kotlin("jvm") version "1.6.10"
+    kotlin("jvm") version "1.6.21"
     id("com.github.johnrengelman.shadow") version "6.1.0"
 }
 
@@ -34,13 +34,13 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
 
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
-    implementation("io.ktor:ktor-jackson:$ktorVersion")
-
+    implementation("io.ktor:ktor-serialization-jackson:$ktorVersion")
+    implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
+    implementation("io.ktor:ktor-server-status-pages:$ktorVersion")
 
     implementation("com.zaxxer:HikariCP:$hikariCPVersion")
     implementation("org.flywaydb:flyway-core:$flywayVersion")
     implementation("org.postgresql:postgresql:$postgresVersion")
-
 
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
     implementation("net.logstash.logback:logstash-logback-encoder:$logstashEncoderVersion")
