@@ -6,7 +6,7 @@
         </encoder>
     </appender>
 
-    <logger name="no.kartveit" level="INFO"/>
+    <logger name="io.github.mikaojk" level="INFO"/>
 
     <root level="INFO">
         <appender-ref ref="stdout_json"/>

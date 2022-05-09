@@ -1,4 +1,4 @@
 CREATE TABLE validdata
 (
-    data                 VARCHAR(64) PRIMARY KEY
+    data VARCHAR(64) PRIMARY KEY
 );

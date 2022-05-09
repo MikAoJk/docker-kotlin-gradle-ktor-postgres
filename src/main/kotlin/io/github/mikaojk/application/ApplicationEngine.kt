@@ -1,7 +1,7 @@
 package io.github.mikaojk.application
 
-import io.github.mikaojk.api.registerValidateDataApi
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import io.github.mikaojk.api.registerValidateDataApi
 import io.github.mikaojk.db.Database
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.engine.ApplicationEngine

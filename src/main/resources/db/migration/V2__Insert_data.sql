@@ -1,1 +1,2 @@
-INSERT INTO validdata (data) VALUES ('DATA');
+INSERT INTO validdata (data)
+VALUES ('DATA');

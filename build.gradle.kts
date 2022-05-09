@@ -11,19 +11,20 @@ val jvmTargetVersion = "17"
 val ktorVersion = "2.0.0"
 val junitJupiterVersion = "5.8.2"
 val logbackVersion = "1.2.11"
-val logstashEncoderVersion = "7.0.1"
+val logstashEncoderVersion = "7.1.1"
 val kotlinVersion = "1.6.10"
 val postgresqlVersion = "42.3.1"
 val hikariCPVersion = "5.0.1"
-val flywayVersion= "8.5.7"
-val otjPgEmbeddedVersion = "1.0.0"
-val postgresVersion = "42.3.3"
+val flywayVersion= "8.5.10"
+val otjPgEmbeddedVersion = "1.0.1"
+val postgresVersion = "42.3.4"
+val jacksonDatabindVersion = "2.13.2.2"
 
 
 plugins {
     java
     kotlin("jvm") version "1.6.21"
-    id("com.github.johnrengelman.shadow") version "6.1.0"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 repositories {
@@ -62,6 +63,10 @@ tasks {
 
     named<KotlinCompile>("compileTestKotlin") {
         kotlinOptions.jvmTarget = jvmTargetVersion
+    }
+
+    withType<Jar> {
+        manifest.attributes["Main-Class"] = "io.github.mikaojk.BootstrapKt"
     }
 
     withType<ShadowJar> {

@@ -27,7 +27,10 @@ on windows : http://127.0.0.1:8080
 
 #### Local testing
 ## Running the postgresSql db from docker compose
-docker-compose -p docker-kotlin-gradle-ktor-postgres-compose up -d
+`docker-compose -p docker-kotlin-gradle-ktor-postgres-compose up -d`
+
+## Stop the running the postgresSql db from docker compose
+`docker-compose -p docker-kotlin-gradle-ktor-postgres-compose down`
 
 ## run the main class in your favoritt IDE(Intellij)
 Go to src/main/kotlin/Bootstrap.kt and run it
