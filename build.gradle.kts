@@ -64,15 +64,10 @@ tasks {
         kotlinOptions.jvmTarget = jvmTargetVersion
     }
 
-    withType<Jar> {
-        manifest.attributes["Main-Class"] = "io.github.mikaojk.BootstrapKt"
-    }
-
     withType<ShadowJar> {
-        transform(ServiceFileTransformer::class.java) {
-            setPath("META-INF/cxf")
-            include("bus-extensions.txt")
-        }
+        archiveBaseName.set(project.name)
+        mergeServiceFiles()
+        manifest.attributes["Main-Class"] = "io.github.mikaojk.BootstrapKt"
     }
 
     withType<Test> {
@@ -80,6 +75,10 @@ tasks {
         testLogging {
             showStandardStreams = true
         }
+    }
+
+    build {
+        dependsOn(shadowJar)
     }
 
 }

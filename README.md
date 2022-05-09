@@ -16,20 +16,11 @@
 #### Compile and package application
 To build locally and run the integration tests you can simply run ./gradlew clean build or on windows gradlew.bat clean build
 
-#### Creating a docker image
-Creating a docker image should be as simple as `docker build -t docker-kotlin-gradle-ktor-postgres .`
-
-#### Running a docker image
-`docker run -d --rm -it -p 8080:8080 docker-kotlin-gradle-ktor-postgres`
-on linux: http://0.0.0.0:8080
-on osx: http://0.0.0.0:8080
-on windows : http://127.0.0.1:8080
-
 #### Local testing
 ## Running the postgresSql db from docker compose
 `docker-compose -p docker-kotlin-gradle-ktor-postgres-compose up -d`
 
-## Stop the running the postgresSql db from docker compose
+## Tear down the postgresSql db from docker compose
 `docker-compose -p docker-kotlin-gradle-ktor-postgres-compose down`
 
 ## run the main class in your favoritt IDE(Intellij)
@@ -43,12 +34,15 @@ The endpoint is currently available at http://$yourlocalhost/v1/validate when ru
 Set the body in the request, example: `{"data":"DATA"}` and profit
 
 Example of a request:
-`curl --location --request POST 'http://127.0.0.1:8080/v1/validate' \
+`curl --location --request POST 'http://$yourlocalhost:8080/v1/validate' \
 --header 'Content-Type: application/json' \
 --data-raw '{"data":"DATA"}'`
 
 Example of a response:
 `{"result":"OK"}`
 
-### Tear down the postgresSql db from docker compose
-docker-compose -p docker-kotlin-gradle-ktor-postgres-compose down
+#### Creating a docker image
+Creating a docker image should be as simple as `docker build -t docker-kotlin-gradle-ktor-postgres .`
+
+#### Running a docker image
+`docker run -d --rm -it -p 8080:8080 docker-kotlin-gradle-ktor-postgres`
