@@ -18,7 +18,6 @@ val hikariCPVersion = "5.0.1"
 val flywayVersion= "8.5.10"
 val otjPgEmbeddedVersion = "1.0.1"
 val postgresVersion = "42.3.4"
-val jacksonDatabindVersion = "2.13.2.2"
 
 
 plugins {
