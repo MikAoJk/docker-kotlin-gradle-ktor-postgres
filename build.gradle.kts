@@ -1,5 +1,4 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-import com.github.jengelman.gradle.plugins.shadow.transformers.ServiceFileTransformer
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 
@@ -12,7 +11,8 @@ val ktorVersion = "2.0.0"
 val junitJupiterVersion = "5.8.2"
 val logbackVersion = "1.2.11"
 val logstashEncoderVersion = "7.1.1"
-val kotlinVersion = "1.6.10"
+val kotlinVersion = "1.6.21"
+val jacksonVersion = "2.13.2"
 val postgresqlVersion = "42.3.1"
 val hikariCPVersion = "5.0.1"
 val flywayVersion= "8.5.10"
@@ -37,6 +37,8 @@ dependencies {
     implementation("io.ktor:ktor-serialization-jackson:$ktorVersion")
     implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
     implementation("io.ktor:ktor-server-status-pages:$ktorVersion")
+
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
 
     implementation("com.zaxxer:HikariCP:$hikariCPVersion")
     implementation("org.flywaydb:flyway-core:$flywayVersion")

@@ -1,5 +1,9 @@
 package io.github.mikaojk.application
 
+import com.fasterxml.jackson.annotation.JsonInclude
+import com.fasterxml.jackson.databind.DeserializationFeature
+import com.fasterxml.jackson.databind.SerializationFeature
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import io.github.mikaojk.api.registerValidateDataApi
 import io.github.mikaojk.db.Database
@@ -23,6 +27,10 @@ fun createApplicationEngine(database: Database): ApplicationEngine =
         install(ContentNegotiation) {
             jackson {
                 registerKotlinModule()
+                registerModule(JavaTimeModule())
+                configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
+                configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+                setSerializationInclusion(JsonInclude.Include.NON_NULL)
             }
         }
         install(StatusPages) {
