@@ -78,6 +78,9 @@ tasks {
             showStandardStreams = true
         }
     }
+    withType<Wrapper> {
+        gradleVersion = "7.4.2"
+    }
 
     build {
         dependsOn(shadowJar)
