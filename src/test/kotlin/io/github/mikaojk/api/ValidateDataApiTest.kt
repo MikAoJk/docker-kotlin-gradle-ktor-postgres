@@ -1,9 +1,9 @@
-package io.github.mikaojk
+package io.github.mikaojk.api
 
-import io.github.mikaojk.api.registerValidateDataApi
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import io.github.mikaojk.TestDB
 import io.ktor.http.HttpMethod
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.testing.TestApplicationEngine
