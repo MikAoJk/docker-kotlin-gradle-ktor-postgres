@@ -11,7 +11,7 @@ val ktorVersion = "2.0.2"
 val junitJupiterVersion = "5.8.2"
 val logbackVersion = "1.2.11"
 val logstashEncoderVersion = "7.2"
-val kotlinVersion = "1.6.21"
+val kotlinVersion = "1.7.0"
 val jacksonVersion = "2.13.3"
 val postgresqlVersion = "42.3.1"
 val hikariCPVersion = "5.0.1"
@@ -22,7 +22,7 @@ val postgresVersion = "42.3.6"
 
 plugins {
     java
-    kotlin("jvm") version "1.6.21"
+    kotlin("jvm") version "1.7.0"
     id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
