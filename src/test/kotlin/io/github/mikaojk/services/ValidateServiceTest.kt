@@ -1,9 +1,13 @@
 package io.github.mikaojk.services
 
 import io.github.mikaojk.TestDB
+import io.github.mikaojk.dropData
+import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestInstance
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class ValidateServiceTest {
 
     private val database = TestDB()
@@ -18,5 +22,12 @@ internal class ValidateServiceTest {
 
         assertEquals(expectedValidationResult, actualValidateData)
     }
+
+    @AfterAll
+    internal fun afterAll() {
+        database.connection.dropData()
+        database.stop()
+    }
+
 
 }

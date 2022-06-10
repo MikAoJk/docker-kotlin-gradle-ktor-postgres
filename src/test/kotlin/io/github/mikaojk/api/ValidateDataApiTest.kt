@@ -4,20 +4,25 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import io.github.mikaojk.TestDB
-import io.ktor.http.HttpMethod
-import io.ktor.http.HttpStatusCode
-import io.ktor.server.testing.TestApplicationEngine
-import io.ktor.server.testing.handleRequest
-import io.ktor.server.testing.setBody
-import org.junit.jupiter.api.Assertions.assertEquals
+import io.github.mikaojk.dropData
 import io.github.mikaojk.services.ValidationData
 import io.github.mikaojk.services.ValidationResult
+import io.ktor.http.HttpMethod
+import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.install
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.routing.routing
+import io.ktor.server.testing.TestApplicationEngine
+import io.ktor.server.testing.handleRequest
+import io.ktor.server.testing.setBody
+import org.junit.jupiter.api.AfterAll
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestInstance
 
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class ValidateDataApiTest {
 
     private val objectMapper: ObjectMapper = ObjectMapper()
@@ -87,6 +92,12 @@ internal class ValidateDataApiTest {
         }
 
 
+    }
+
+    @AfterAll
+    internal fun afterAll() {
+        database.connection.dropData()
+        database.stop()
     }
 
 }
