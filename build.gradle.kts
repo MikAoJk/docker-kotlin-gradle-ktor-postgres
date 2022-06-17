@@ -74,6 +74,8 @@ tasks {
         useJUnitPlatform()
         testLogging {
             showStandardStreams = true
+            showStackTraces = true
+            exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
         }
     }
     withType<Wrapper> {
