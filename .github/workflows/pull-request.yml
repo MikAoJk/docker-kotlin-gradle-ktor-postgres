@@ -14,11 +14,13 @@ jobs:
                   distribution: temurin
                   java-version: 17
 
-            - name: Build program
+            - name: Set up gradle
               uses: gradle/gradle-build-action@v2
               with:
                   gradle-version: current
-              run: gradle build
+
+            - name: Build program
+              run: ./gradlew build
 
             - name: Run tests
-              run: gradle test
+              run: ./gradlew test
