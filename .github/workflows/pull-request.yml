@@ -20,7 +20,7 @@ jobs:
                   gradle-version: current
 
             - name: Build program
-              run: ./gradlew build
+              run: gradle build
 
             - name: Run tests
-              run: ./gradlew test
+              run: gradle test
