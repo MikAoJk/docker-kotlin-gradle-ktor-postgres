@@ -15,10 +15,10 @@ jobs:
                   java-version: 17
 
             - name: Build program
-            - uses: gradle/gradle-build-action@v2
+              uses: gradle/gradle-build-action@v2
               with:
                   gradle-version: current
-            - run: gradle build
+              run: gradle build
 
             - name: Run tests
               run: gradle test
