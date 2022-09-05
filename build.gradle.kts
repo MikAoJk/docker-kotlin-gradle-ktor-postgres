@@ -15,7 +15,7 @@ val kotlinVersion = "1.7.10"
 val jacksonVersion = "2.13.3"
 val postgresqlVersion = "42.3.1"
 val hikariCPVersion = "5.0.1"
-val flywayVersion= "9.2.0"
+val flywayVersion= "9.2.2"
 val otjPgEmbeddedVersion = "1.0.1"
 val postgresVersion = "42.5.0"
 
