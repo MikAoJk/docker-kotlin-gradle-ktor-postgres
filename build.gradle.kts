@@ -12,7 +12,7 @@ val junitJupiterVersion = "5.9.1"
 val logbackVersion = "1.4.4"
 val logstashEncoderVersion = "7.2"
 val kotlinVersion = "1.7.20"
-val jacksonVersion = "2.13.4"
+val jacksonVersion = "2.14.0-rc2"
 val postgresqlVersion = "42.3.1"
 val hikariCPVersion = "5.0.1"
 val flywayVersion= "9.4.0"
@@ -33,7 +33,7 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
 
-    implementation("io.ktor:ktor-server-cio:$ktorVersion")
+    implementation("io.ktor:ktor-server-netty:$ktorVersion")
     implementation("io.ktor:ktor-serialization-jackson:$ktorVersion")
     implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
     implementation("io.ktor:ktor-server-status-pages:$ktorVersion")
@@ -79,7 +79,7 @@ tasks {
         }
     }
     withType<Wrapper> {
-        gradleVersion = "7.4.2"
+        gradleVersion = "7.5.1"
     }
 
     build {

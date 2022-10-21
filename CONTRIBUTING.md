@@ -5,7 +5,7 @@ Please fork the repo and start a new branch to work on.
 
 ## Building locally
 This project is using [Gradle](https://gradle.org/) for its build tool.
-A Gradle Wrapper is included in the code though so you do not have to manage your own installation.
+A Gradle Wrapper is included in the code though, so you do not have to manage your own installation.
 
 To run a build simply exucute the following:
 
@@ -14,7 +14,6 @@ To run a build simply exucute the following:
 ```
 
 This will run all the steps defined in the `build.gradle.kts` file.
-
 
 ## Testing
 If you are adding a new feature or bug fix please ensure there is proper test coverage.

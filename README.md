@@ -66,5 +66,13 @@ Creating a docker image should be as simple as `docker build -t docker-kotlin-gr
 #### Running a docker image
 `docker run -d --rm -it -p 8080:8080 docker-kotlin-gradle-ktor-postgres`
 
-## Inquiries
-Questions related to the code or project can be asked as issues here on GitHub.
+### Contribute
+Want to add a feature? see [CONTRIBUTING](CONTRIBUTING.md)
+
+### Contact
+
+This project is maintained by [CODEOWNERS](CODEOWNERS)
+
+Questions please create an
+[issue](https://github.com/MikAoJk/docker-kotlin-gradle-ktor-postgres/issues).
+

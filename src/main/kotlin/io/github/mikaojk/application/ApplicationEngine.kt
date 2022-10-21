@@ -10,17 +10,17 @@ import io.github.mikaojk.db.Database
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.engine.ApplicationEngine
 import io.ktor.server.engine.embeddedServer
-import io.ktor.server.cio.CIO
 import io.github.mikaojk.log
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.install
+import io.ktor.server.netty.Netty
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.routing.routing
 import io.ktor.server.plugins.statuspages.StatusPages
 import io.ktor.server.response.respondText
 
 fun createApplicationEngine(database: Database): ApplicationEngine =
-    embeddedServer(CIO, 8080) {
+    embeddedServer(Netty, 8080) {
         routing {
             registerValidateDataApi(database)
         }
