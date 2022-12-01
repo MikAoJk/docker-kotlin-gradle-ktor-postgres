@@ -52,6 +52,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
     testImplementation("io.ktor:ktor-server-test-host:$ktorVersion")
     testImplementation("com.opentable.components:otj-pg-embedded:$otjPgEmbeddedVersion")
+    testImplementation("io.ktor:ktor-client-content-negotiation-jvm:$ktorVersion")
 }
 
 
