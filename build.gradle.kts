@@ -7,11 +7,11 @@ version = "1.0.0-SNAPSHOT"
 
 val jvmTargetVersion = "17"
 
-val ktorVersion = "2.1.3"
+val ktorVersion = "2.2.1"
 val junitJupiterVersion = "5.9.1"
 val logbackVersion = "1.4.5"
 val logstashEncoderVersion = "7.2"
-val kotlinVersion = "1.7.21"
+val kotlinVersion = "1.7.22"
 val jacksonVersion = "2.14.1"
 val postgresqlVersion = "42.3.1"
 val hikariCPVersion = "5.0.1"
@@ -22,7 +22,7 @@ val postgresVersion = "42.5.1"
 
 plugins {
     java
-    kotlin("jvm") version "1.7.21"
+    kotlin("jvm") version "1.7.22"
     id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
@@ -80,7 +80,7 @@ tasks {
         }
     }
     withType<Wrapper> {
-        gradleVersion = "7.5.1"
+        gradleVersion = "7.6"
     }
 
     build {
