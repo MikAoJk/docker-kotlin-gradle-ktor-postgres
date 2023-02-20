@@ -17,7 +17,7 @@ val postgresqlVersion = "42.3.1"
 val hikariCPVersion = "5.0.1"
 val flywayVersion= "9.14.1"
 val otjPgEmbeddedVersion = "1.0.1"
-val postgresVersion = "42.5.3"
+val postgresVersion = "42.5.4"
 
 
 plugins {
