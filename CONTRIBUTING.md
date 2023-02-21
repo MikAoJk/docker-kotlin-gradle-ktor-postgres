@@ -2,14 +2,13 @@
 This project is open to accept feature requests and contributions from the open source community.
 Please fork the repo and start a new branch to work on.
 
-
 ## Building locally
 This project is using [Gradle](https://gradle.org/) for its build tool.
 A Gradle Wrapper is included in the code though, so you do not have to manage your own installation.
 
 To run a build simply exucute the following:
 
-```shell script
+```bash script
 ./gradlew build
 ```
 

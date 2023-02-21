@@ -11,18 +11,26 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.server.engine.ApplicationEngine
 import io.ktor.server.engine.embeddedServer
 import io.github.mikaojk.log
+import io.ktor.http.HttpHeaders
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.install
 import io.ktor.server.netty.Netty
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.server.plugins.cors.routing.CORS
 import io.ktor.server.routing.routing
 import io.ktor.server.plugins.statuspages.StatusPages
+import io.ktor.server.plugins.swagger.swaggerUI
 import io.ktor.server.response.respondText
 
 fun createApplicationEngine(database: Database): ApplicationEngine =
     embeddedServer(Netty, 8080) {
         routing {
             registerValidateDataApi(database)
+            swaggerUI(path = "swagger", swaggerFile = "openapi/documentation.yaml")
+        }
+        install(CORS) {
+            anyHost()
+            allowHeader(HttpHeaders.ContentType)
         }
         install(ContentNegotiation) {
             jackson {

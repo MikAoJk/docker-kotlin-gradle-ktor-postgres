@@ -1,0 +1,25 @@
+openapi: "3.0.3"
+info:
+  title: "docker_kotlin_gradle_ktor_postgres API"
+  description: "docker_kotlin_gradle_ktor_postgres API"
+  version: "1.0.0"
+servers:
+- url: "https://localhost:8080"
+paths:
+  /v1/validate:
+    post:
+      description: ""
+      responses:
+        "200":
+          description: "OK"
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/ValidationResult"
+components:
+  schemas:
+    ValidationResult:
+      type: "object"
+      properties:
+        result:
+          type: "string"

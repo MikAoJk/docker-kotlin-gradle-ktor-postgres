@@ -20,24 +20,38 @@ This project is for testing development with docker, kotlin, gradle, ktor and po
 ### Prerequisites
 Make sure you have the Java JDK 17 installed
 You can check which version you have installed using this command:
-`java -version`
+``` bash
+java -version
+```
 
 ### Running the application locally
 
 #### Building the application
-To build locally and run the integration tests you can simply run `./gradlew clean build` or on windows `gradlew.bat clean build`
+To build locally and run the integration tests you can simply run
+``` bash
+./gradlew clean build
+```
+or on windows `gradlew.bat clean build`
 
-#### Unit testing the application
+#### Integrasion testing the application
 ### Running the postgresSql db from docker compose
-`docker-compose -p docker-kotlin-gradle-ktor-postgres-compose up -d`
+``` bash
+docker-compose -p docker-kotlin-gradle-ktor-postgres-compose up -d
+```
 
 ### Tear down the postgresSql db from docker compose
-`docker-compose -p docker-kotlin-gradle-ktor-postgres-compose down`
+``` bash
+docker-compose -p docker-kotlin-gradle-ktor-postgres-compose down
+```
 
 ### Run the main class in your favoritt IDE(Intellij)
 Go to src/main/kotlin/Bootstrap.kt and run it
 
 ### Testing the endpoint
+
+#### Api doc
+http://localhost:8080/swagger
+
 For testing the endpoint ValidateDataApi
 You need a tool to send a request and to inspect the repsonse
 A tool you can use is Postman: https://www.postman.com/downloads/
@@ -55,16 +69,25 @@ Example of a response:
 ### Upgrading the gradle wrapper
 Find the newest version of gradle here: https://gradle.org/releases/ Then run this command:
 
-```./gradlew wrapper --gradle-version $gradleVersjon```
+``` bash
+./gradlew wrapper --gradle-version $gradleVersjon
+```
 
 Remeber to also update the gradle version in the build.gradle.kts file
-```gradleVersion = "$gradleVersjon"```
+``` bash
+gradleVersion = "$gradleVersjon"
+```
 
 #### Creating a docker image
-Creating a docker image should be as simple as `docker build -t docker-kotlin-gradle-ktor-postgres .`
+Creating a docker image should be as simple as
+``` bash
+docker build -t docker-kotlin-gradle-ktor-postgres .
+```
 
 #### Running a docker image
-`docker run -d --rm -it -p 8080:8080 docker-kotlin-gradle-ktor-postgres`
+``` bash
+docker run -d --rm -it -p 8080:8080 docker-kotlin-gradle-ktor-postgres
+```
 
 ### Contribute
 Want to add a feature? see [CONTRIBUTING](CONTRIBUTING.md)
@@ -74,5 +97,5 @@ Want to add a feature? see [CONTRIBUTING](CONTRIBUTING.md)
 This project is maintained by [CODEOWNERS](CODEOWNERS)
 
 Questions please create an
-[issue](https://github.com/MikAoJk/docker-kotlin-gradle-ktor-postgres/issues).
+[issue](https://github.com/MikAoJk/docker-kotlin-gradle-ktor-postgres/issues)
 
