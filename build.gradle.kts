@@ -13,9 +13,9 @@ val logbackVersion = "1.4.5"
 val logstashEncoderVersion = "7.3"
 val kotlinVersion = "1.8.10"
 val jacksonVersion = "2.14.2"
-val postgresqlVersion = "42.3.1"
+val postgresqlVersion = "42.5.4"
 val hikariCPVersion = "5.0.1"
-val flywayVersion= "9.15.1"
+val flywayVersion= "9.15.2"
 val otjPgEmbeddedVersion = "1.0.1"
 val postgresVersion = "42.5.4"
 
@@ -82,7 +82,7 @@ tasks {
         }
     }
     withType<Wrapper> {
-        gradleVersion = "8.0"
+        gradleVersion = "8.0.1"
     }
 
     build {

@@ -10,7 +10,7 @@ body:
           value: |
               ## First of all
               1. Please search for [existing issues](https://github.com/MikAoJk/docker-kotlin-gradle-ktor-postgres/issues?q=is%3Aissue) about this problem first.
-              2. Remember to follow our community guidelines and be friendly.
+              2. Remember to be friendly.
 
     - type: textarea
       id: description

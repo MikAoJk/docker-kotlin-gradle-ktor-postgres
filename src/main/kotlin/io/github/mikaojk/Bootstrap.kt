@@ -6,7 +6,7 @@ import io.github.mikaojk.db.Database
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-val log: Logger = LoggerFactory.getLogger("io.github.mikaojk.Bootstrap")
+val <T : Any> T.log: Logger get() = LoggerFactory.getLogger(this::class.java)
 
 fun main() {
 
