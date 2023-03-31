@@ -11,7 +11,7 @@ val ktorVersion = "2.2.4"
 val junitJupiterVersion = "5.9.2"
 val logbackVersion = "1.4.6"
 val logstashEncoderVersion = "7.3"
-val kotlinVersion = "1.8.20"
+val kotlinVersion = "1.8.10"
 val jacksonVersion = "2.14.2"
 val postgresqlVersion = "42.5.4"
 val hikariCPVersion = "5.0.1"
@@ -22,7 +22,7 @@ val postgresVersion = "42.6.0"
 
 plugins {
     java
-    kotlin("jvm") version "1.8.20"
+    kotlin("jvm") version "1.8.10"
     id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
@@ -31,7 +31,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
 
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
     implementation("io.ktor:ktor-serialization-jackson:$ktorVersion")
