@@ -18,7 +18,7 @@ val hikariCPVersion = "5.0.1"
 val flywayVersion= "9.17.0"
 val otjPgEmbeddedVersion = "1.0.1"
 val postgresVersion = "42.6.0"
-
+val commonsCodecVersion = "1.13"
 
 plugins {
     java
@@ -53,6 +53,8 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
     testImplementation("io.ktor:ktor-server-test-host:$ktorVersion")
+    //Provides transitive vulnerable dependency maven:commons-codec:commons-codec:1.11
+    testImplementation("commons-codec:commons-codec:$commonsCodecVersion")
     testImplementation("com.opentable.components:otj-pg-embedded:$otjPgEmbeddedVersion")
     testImplementation("io.ktor:ktor-client-content-negotiation-jvm:$ktorVersion")
 }
@@ -61,10 +63,12 @@ dependencies {
 tasks {
     withType<KotlinCompile> {
         kotlinOptions.jvmTarget = jvmTargetVersion
+        kotlinOptions.languageVersion = "2.0"
     }
 
     named<KotlinCompile>("compileTestKotlin") {
         kotlinOptions.jvmTarget = jvmTargetVersion
+        kotlinOptions.languageVersion = "2.0"
     }
 
     withType<ShadowJar> {
