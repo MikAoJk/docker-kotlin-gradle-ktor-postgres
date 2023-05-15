@@ -18,7 +18,7 @@ val hikariCPVersion = "5.0.1"
 val flywayVersion= "9.17.0"
 val otjPgEmbeddedVersion = "1.0.1"
 val postgresVersion = "42.6.0"
-val commonsCodecVersion = "1.13"
+val commonsCodecVersion = "1.15"
 
 plugins {
     java
