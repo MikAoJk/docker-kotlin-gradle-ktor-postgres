@@ -63,12 +63,10 @@ dependencies {
 tasks {
     withType<KotlinCompile> {
         kotlinOptions.jvmTarget = jvmTargetVersion
-        kotlinOptions.languageVersion = "2.0"
     }
 
     named<KotlinCompile>("compileTestKotlin") {
         kotlinOptions.jvmTarget = jvmTargetVersion
-        kotlinOptions.languageVersion = "2.0"
     }
 
     withType<ShadowJar> {
