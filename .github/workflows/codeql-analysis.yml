@@ -22,6 +22,7 @@ jobs:
       - uses: github/codeql-action/init@v2
         with:
           languages: kotlin
+          debug: true
       - uses: actions/setup-java@v3
         id: setup-java
         with:
