@@ -22,7 +22,7 @@ val commonsCodecVersion = "1.15"
 
 plugins {
     java
-    kotlin("jvm") version "1.8.21"
+    kotlin("jvm") version "1.8.22"
     id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
