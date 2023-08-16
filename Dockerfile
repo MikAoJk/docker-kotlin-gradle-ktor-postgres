@@ -1,5 +1,8 @@
-FROM openjdk:17-jdk-slim
+FROM gcr.io/distroless/java17
 WORKDIR /app
+COPY build/libs/*.jar app.jar
+ENV JAVA_OPTS="-Dlogback.configurationFile=logback.xml"
+ENV TZ="Europe/Oslo"
 EXPOSE 8080
-COPY build/libs/*-all.jar app.jar
-CMD ["java", "-jar", "app.jar"]
+USER nonroot
+CMD [ "app.jar" ]

@@ -21,7 +21,6 @@ val postgresVersion = "42.6.0"
 val commonsCodecVersion = "1.16.0"
 
 plugins {
-    java
     kotlin("jvm") version "1.9.0"
     id("com.github.johnrengelman.shadow") version "8.1.1"
 }
@@ -61,31 +60,28 @@ dependencies {
 
 
 tasks {
-    withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = jvmTargetVersion
+    shadowJar {
+        archiveBaseName.set("app")
+        archiveClassifier.set("")
+        isZip64 = true
+        manifest {
+            attributes(
+                mapOf(
+                    "Main-Class" to "io.github.mikaojk.BootstrapKt",
+                ),
+            )
+        }
     }
 
-    named<KotlinCompile>("compileTestKotlin") {
-        kotlinOptions.jvmTarget = jvmTargetVersion
-    }
-
-    withType<ShadowJar> {
-        archiveBaseName.set(project.name)
-        mergeServiceFiles()
-        manifest.attributes["Main-Class"] = "io.github.mikaojk.BootstrapKt"
-    }
-
-    withType<Test> {
-        useJUnitPlatform()
+    test {
+        useJUnitPlatform {}
         testLogging {
             showStandardStreams = true
             showStackTraces = true
             exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
         }
     }
-    withType<Wrapper> {
-        gradleVersion = "8.0.2"
-    }
+
 
     build {
         dependsOn(shadowJar)

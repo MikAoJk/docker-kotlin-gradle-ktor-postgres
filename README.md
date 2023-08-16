@@ -73,11 +73,6 @@ Find the newest version of gradle here: https://gradle.org/releases/ Then run th
 ./gradlew wrapper --gradle-version $gradleVersjon
 ```
 
-Remeber to also update the gradle version in the build.gradle.kts file
-``` bash
-gradleVersion = "$gradleVersjon"
-```
-
 #### Creating a docker image
 Creating a docker image should be as simple as
 ``` bash
