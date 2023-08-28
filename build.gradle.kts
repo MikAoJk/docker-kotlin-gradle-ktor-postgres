@@ -1,7 +1,3 @@
-import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
-
 group = "io.github.MikAoJk"
 version = "1.0.0-SNAPSHOT"
 
@@ -19,10 +15,12 @@ val flywayVersion= "9.21.2"
 val otjPgEmbeddedVersion = "1.0.1"
 val postgresVersion = "42.6.0"
 val commonsCodecVersion = "1.16.0"
+val ktfmtVersion = "0.44"
 
 plugins {
     kotlin("jvm") version "1.9.10"
     id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("com.diffplug.spotless") version "6.20.0"
 }
 
 repositories {
@@ -67,7 +65,7 @@ tasks {
         manifest {
             attributes(
                 mapOf(
-                    "Main-Class" to "io.github.mikaojk.BootstrapKt",
+                    "Main-Class" to "io.github.mikaojk.ApplicationKt",
                 ),
             )
         }
@@ -79,6 +77,12 @@ tasks {
             showStandardStreams = true
             showStackTraces = true
             exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+        }
+    }
+    spotless {
+        kotlin { ktfmt(ktfmtVersion).kotlinlangStyle() }
+        check {
+            dependsOn("spotlessApply")
         }
     }
 

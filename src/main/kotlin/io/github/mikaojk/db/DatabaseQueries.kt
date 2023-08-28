@@ -2,14 +2,16 @@ package io.github.mikaojk.db
 
 fun DatabaseInterface.validData(data: String) =
     connection.use { connection ->
-        connection.prepareStatement(
-            """
+        connection
+            .prepareStatement(
+                """
                 SELECT *
                 FROM validdata
                 WHERE data=?;
                 """
-        ).use {
-            it.setString(1, data)
-            it.executeQuery().next()
-        }
+            )
+            .use {
+                it.setString(1, data)
+                it.executeQuery().next()
+            }
     }

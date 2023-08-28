@@ -2,7 +2,6 @@ package io.github.mikaojk.services
 
 import io.github.mikaojk.TestDB
 import io.github.mikaojk.dropData
-import io.github.mikaojk.log
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -29,6 +28,4 @@ internal class ValidateServiceTest {
         database.connection.dropData()
         database.stop()
     }
-
-
 }
