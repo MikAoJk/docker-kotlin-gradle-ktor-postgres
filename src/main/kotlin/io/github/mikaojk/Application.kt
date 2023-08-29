@@ -74,7 +74,9 @@ fun Application.configureRouting(database: Database) {
 
 fun Application.module() {
 
-    val database = Database()
+    val environmentVariables = EnvironmentVariables()
+
+    val database = Database(environmentVariables)
 
     configureRouting(database)
 }

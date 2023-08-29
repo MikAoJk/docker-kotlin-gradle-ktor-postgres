@@ -45,7 +45,7 @@ docker-compose -p docker-kotlin-gradle-ktor-postgres-compose down
 ```
 
 ### Run the main class in your favoritt IDE(Intellij)
-Go to src/main/kotlin/Bootstrap.kt and run it
+Go to src/main/kotlin/Application.kt and run the main method
 
 ### Testing the endpoint
 
@@ -55,13 +55,15 @@ http://localhost:8080/swagger
 For testing the endpoint ValidateDataApi
 You need a tool to send a request and to inspect the repsonse
 A tool you can use is Postman: https://www.postman.com/downloads/
-The endpoint is currently available at http://$yourlocalhost/v1/validate when running the application locally
+The endpoint is currently available at http://0.0.0.0/v1/validate when running the application locally
 Set the body in the request, example: `{"data":"DATA"}` and profit
 
 Example of a request:
-`curl --location --request POST 'http://$yourlocalhost:8080/v1/validate' \
+``` bash
+`curl --location --request POST 'http://0.0.0.0:8080/v1/validate' \
 --header 'Content-Type: application/json' \
 --data-raw '{"data":"DATA"}'`
+```
 
 Example of a response:
 `{"result":"OK"}`
@@ -81,7 +83,7 @@ docker build -t docker-kotlin-gradle-ktor-postgres .
 
 #### Running a docker image
 ``` bash
-docker run -d --rm -it -p 8080:8080 docker-kotlin-gradle-ktor-postgres
+docker run -d --rm -it -p 8080:8080 -e "DATABASE_HOST_URL=db" docker-kotlin-gradle-ktor-postgres
 ```
 
 ### Contribute

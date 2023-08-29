@@ -2,10 +2,11 @@ package io.github.mikaojk.db
 
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
+import io.github.mikaojk.EnvironmentVariables
 import java.sql.Connection
 import org.flywaydb.core.Flyway
 
-class Database : DatabaseInterface {
+class Database(private val environmentVariables: EnvironmentVariables) : DatabaseInterface {
     private val dataSource: HikariDataSource
 
     override val connection: Connection
@@ -17,7 +18,7 @@ class Database : DatabaseInterface {
         dataSource =
             HikariDataSource(
                 HikariConfig().apply {
-                    jdbcUrl = "jdbc:postgresql://localhost:5432/postgres"
+                    jdbcUrl = "jdbc:postgresql://${environmentVariables}:5432/postgres"
                     username = "test"
                     password = "test123"
                     maximumPoolSize = 3
@@ -33,7 +34,7 @@ class Database : DatabaseInterface {
 
     private fun runFlywayMigrations() =
         Flyway.configure().run {
-            dataSource("jdbc:postgresql://localhost:5432/postgres", "test", "test123")
+            dataSource("jdbc:postgresql://${environmentVariables}:5432/postgres", "test", "test123")
             load().migrate()
         }
 }
