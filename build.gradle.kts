@@ -49,9 +49,14 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
     testImplementation("io.ktor:ktor-server-test-host:$ktorVersion")
-    //Provides transitive vulnerable dependency maven:commons-codec:commons-codec:1.11
-    testImplementation("commons-codec:commons-codec:$commonsCodecVersion")
+    constraints {
+        testImplementation("commons-codec:commons-codec:$commonsCodecVersion") {
+            because("override transient from io.ktor:ktor-server-test-host")
+        }
+    }
     testImplementation("com.opentable.components:otj-pg-embedded:$otjPgEmbeddedVersion")
     testImplementation("io.ktor:ktor-client-content-negotiation-jvm:$ktorVersion")
 }

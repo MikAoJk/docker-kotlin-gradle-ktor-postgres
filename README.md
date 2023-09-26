@@ -69,10 +69,10 @@ Example of a response:
 `{"result":"OK"}`
 
 ### Upgrading the gradle wrapper
-Find the newest version of gradle here: https://gradle.org/releases/ Then run this command:
+run this command:
 
 ``` bash
-./gradlew wrapper --gradle-version $gradleVersjon
+./gradlew wrapper --gradle-version latest
 ```
 
 #### Creating a docker image
