@@ -62,18 +62,6 @@ dependencies {
 
 
 tasks {
-    shadowJar {
-        archiveBaseName.set("app")
-        archiveClassifier.set("")
-        isZip64 = true
-        manifest {
-            attributes(
-                mapOf(
-                    "Main-Class" to "io.github.mikaojk.ApplicationKt",
-                ),
-            )
-        }
-    }
 
     test {
         useJUnitPlatform {}
@@ -88,11 +76,6 @@ tasks {
         check {
             dependsOn("spotlessApply")
         }
-    }
-
-
-    build {
-        dependsOn(shadowJar)
     }
 
 }
