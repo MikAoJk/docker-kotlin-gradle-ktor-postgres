@@ -18,8 +18,13 @@ val commonsCodecVersion = "1.16.0"
 val ktfmtVersion = "0.44"
 
 plugins {
+    id("application")
     kotlin("jvm") version "1.9.10"
     id("com.diffplug.spotless") version "6.21.0"
+}
+
+application {
+    mainClass.set("io.github.mikaojk.ApplicationKt")
 }
 
 repositories {
