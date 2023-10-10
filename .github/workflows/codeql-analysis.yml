@@ -32,7 +32,7 @@ jobs:
           java-version: "17"
 
 
-      - run: ./gradlew shadowJar -x test
+      - run: ./gradlew build installDist -x test
       
       - uses: github/codeql-action/analyze@v2
         with:

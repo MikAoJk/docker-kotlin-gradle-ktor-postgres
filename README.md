@@ -29,9 +29,9 @@ java -version
 #### Building the application
 To build locally and run the integration tests you can simply run
 ``` bash
-./gradlew clean build
+./gradlew clean build installDist
 ```
-or on windows `gradlew.bat clean build`
+or on windows `gradlew.bat clean build installDist`
 
 #### Integrasion testing the application
 ### Running the postgresSql db from docker compose
