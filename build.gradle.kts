@@ -11,7 +11,7 @@ val kotlinVersion = "1.9.20"
 val jacksonVersion = "2.15.3"
 val postgresqlVersion = "42.5.4"
 val hikariCPVersion = "5.1.0"
-val flywayVersion= "9.22.3"
+val flywayVersion= "10.0.0"
 val otjPgEmbeddedVersion = "1.0.2"
 val postgresVersion = "42.6.0"
 val commonsCodecVersion = "1.16.0"
@@ -44,7 +44,8 @@ dependencies {
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
 
     implementation("com.zaxxer:HikariCP:$hikariCPVersion")
-    implementation("org.flywaydb:flyway-core:$flywayVersion")
+    compileOnly("org.flywaydb:flyway-core:$flywayVersion")
+    implementation("org.flywaydb:flyway-database-postgresql:$flywayVersion")
     implementation("org.postgresql:postgresql:$postgresVersion")
 
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
