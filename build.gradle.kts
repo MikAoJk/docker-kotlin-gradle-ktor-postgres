@@ -1,8 +1,6 @@
 group = "io.github.MikAoJk"
 version = "1.0.0-SNAPSHOT"
 
-val jvmTargetVersion = "17"
-
 val ktorVersion = "2.3.5"
 val junitJupiterVersion = "5.10.1"
 val logbackVersion = "1.4.11"
@@ -16,6 +14,7 @@ val otjPgEmbeddedVersion = "1.0.2"
 val postgresVersion = "42.6.0"
 val commonsCodecVersion = "1.16.0"
 val ktfmtVersion = "0.44"
+val javaVersion = JavaVersion.VERSION_21
 
 plugins {
     id("application")
@@ -68,6 +67,13 @@ dependencies {
 
 
 tasks {
+
+    compileKotlin {
+        kotlinOptions.jvmTarget = javaVersion.toString()
+    }
+    compileTestKotlin {
+        kotlinOptions.jvmTarget = javaVersion.toString()
+    }
 
     test {
         useJUnitPlatform {}
