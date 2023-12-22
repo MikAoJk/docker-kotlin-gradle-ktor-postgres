@@ -1,11 +1,11 @@
 group = "io.github.MikAoJk"
-version = "1.0.0-SNAPSHOT"
+version = "1.0.0"
 
 val ktorVersion = "2.3.7"
 val junitJupiterVersion = "5.10.1"
 val logbackVersion = "1.4.14"
 val logstashEncoderVersion = "7.4"
-val kotlinVersion = "1.9.21"
+val kotlinVersion = "1.9.22"
 val jacksonVersion = "2.16.0"
 val postgresqlVersion = "42.5.4"
 val hikariCPVersion = "5.1.0"
@@ -18,7 +18,7 @@ val javaVersion = JavaVersion.VERSION_21
 
 plugins {
     id("application")
-    kotlin("jvm") version "1.9.21"
+    kotlin("jvm") version "1.9.22"
     id("com.diffplug.spotless") version "6.23.3"
 }
 
