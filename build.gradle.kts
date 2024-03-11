@@ -1,7 +1,7 @@
 group = "io.github.MikAoJk"
 version = "1.0.0"
 
-val ktorVersion = "2.3.8"
+val ktorVersion = "2.3.9"
 val junitJupiterVersion = "5.10.2"
 val logbackVersion = "1.5.3"
 val logstashEncoderVersion = "7.4"
