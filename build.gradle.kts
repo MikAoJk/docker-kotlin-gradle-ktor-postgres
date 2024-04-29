@@ -12,7 +12,7 @@ val hikariCPVersion = "5.1.0"
 val flywayVersion= "10.11.1"
 val otjPgEmbeddedVersion = "1.0.3"
 val postgresVersion = "42.7.3"
-val commonsCodecVersion = "1.16.1"
+val commonsCodecVersion = "1.17.0"
 val ktfmtVersion = "0.44"
 val javaVersion = JavaVersion.VERSION_21
 
