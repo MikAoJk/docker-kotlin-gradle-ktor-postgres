@@ -65,16 +65,14 @@ dependencies {
     testImplementation("io.ktor:ktor-client-content-negotiation-jvm:$ktorVersion")
 }
 
+kotlin {
+    compilerOptions {
+      jvmTarget.set(javaVersion.toString())
+    }
+}
+
 
 tasks {
-
-    compileKotlin {
-        kotlinOptions.jvmTarget = javaVersion.toString()
-    }
-    compileTestKotlin {
-        kotlinOptions.jvmTarget = javaVersion.toString()
-    }
-
     test {
         useJUnitPlatform {}
         testLogging {
