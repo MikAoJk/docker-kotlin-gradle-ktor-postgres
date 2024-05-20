@@ -67,7 +67,7 @@ dependencies {
 
 kotlin {
     compilerOptions {
-      jvmTarget.set(javaVersion.toString())
+      jvmTarget.set(javaVersion)
     }
 }
 
