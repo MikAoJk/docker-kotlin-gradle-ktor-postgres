@@ -74,6 +74,11 @@ kotlin {
 */
 
 tasks {
+    compileKotlin {
+        kotlinOptions.jvmTarget = javaVersion.toString()
+    }
+    compileTestKotlin {
+        kotlinOptions.jvmTarget = javaVersion.toString()
     test {
         useJUnitPlatform {}
         testLogging {
