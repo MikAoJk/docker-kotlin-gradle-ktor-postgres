@@ -65,12 +65,13 @@ dependencies {
     testImplementation("io.ktor:ktor-client-content-negotiation-jvm:$ktorVersion")
 }
 
+/*
 kotlin {
     compilerOptions {
       jvmTarget.set(javaVersion)
     }
 }
-
+*/
 
 tasks {
     test {
