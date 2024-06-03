@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 group = "io.github.MikAoJk"
 version = "1.0.0"
 
@@ -9,12 +11,13 @@ val kotlinVersion = "2.0.0"
 val jacksonVersion = "2.17.1"
 val postgresqlVersion = "42.5.4"
 val hikariCPVersion = "5.1.0"
-val flywayVersion= "10.13.0"
+val flywayVersion = "10.13.0"
 val otjPgEmbeddedVersion = "1.0.3"
 val postgresVersion = "42.7.3"
 val commonsCodecVersion = "1.17.0"
+val commonsCompressVersion = "1.26.2"
 val ktfmtVersion = "0.44"
-val javaVersion = JavaVersion.VERSION_21
+val javaVersion = JvmTarget.JVM_21
 
 plugins {
     id("application")
@@ -62,24 +65,23 @@ dependencies {
         }
     }
     testImplementation("com.opentable.components:otj-pg-embedded:$otjPgEmbeddedVersion")
+    constraints {
+        testImplementation("org.apache.commons:commons-compress:$commonsCompressVersion") {
+            because("override transient from com.opentable.components:otj-pg-embedded")
+        }
+    }
+
     testImplementation("io.ktor:ktor-client-content-negotiation-jvm:$ktorVersion")
 }
 
-/*
+
 kotlin {
     compilerOptions {
-      jvmTarget.set(javaVersion)
+        jvmTarget.set(javaVersion)
     }
 }
-*/
 
 tasks {
-    compileKotlin {
-        kotlinOptions.jvmTarget = javaVersion.toString()
-    }
-    compileTestKotlin {
-        kotlinOptions.jvmTarget = javaVersion.toString()
-    }
     test {
         useJUnitPlatform {}
         testLogging {
