@@ -7,7 +7,7 @@ val ktorVersion = "2.3.12"
 val junitJupiterVersion = "5.10.3"
 val logbackVersion = "1.5.6"
 val logstashEncoderVersion = "8.0"
-val kotlinVersion = "2.0.0"
+val kotlinVersion = "2.0.10"
 val jacksonVersion = "2.17.2"
 val postgresqlVersion = "42.5.4"
 val hikariCPVersion = "5.1.0"
@@ -21,7 +21,7 @@ val javaVersion = JvmTarget.JVM_21
 
 plugins {
     id("application")
-    kotlin("jvm") version "2.0.0"
+    kotlin("jvm") version "2.0.10"
     id("com.diffplug.spotless") version "6.25.0"
 }
 
