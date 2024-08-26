@@ -21,7 +21,7 @@ val javaVersion = JvmTarget.JVM_21
 
 plugins {
     id("application")
-    kotlin("jvm") version "2.0.10"
+    kotlin("jvm") version "2.0.20"
     id("com.diffplug.spotless") version "6.25.0"
 }
 
