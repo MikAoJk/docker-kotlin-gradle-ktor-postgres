@@ -15,7 +15,7 @@ val flywayVersion = "10.17.2"
 val otjPgEmbeddedVersion = "1.1.0"
 val postgresVersion = "42.7.4"
 val commonsCodecVersion = "1.17.1"
-val commonsCompressVersion = "1.27.0"
+val commonsCompressVersion = "1.27.1"
 val ktfmtVersion = "0.44"
 val javaVersion = JvmTarget.JVM_21
 
