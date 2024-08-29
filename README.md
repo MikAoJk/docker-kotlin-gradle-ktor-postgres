@@ -24,14 +24,38 @@ You can check which version you have installed using this command:
 java -version
 ```
 
+Make sure you have the Docker installed
+You can check which version you have installed using this command:
+``` bash
+docker --version
+```
+
+Make sure you have the Docker-compose installed
+You can check which version you have installed using this command:
+``` bash
+docker-compose --version
+```
+
 ### Running the application locally
 
 #### Building the application
 To build locally and run the integration tests you can simply run
 ``` bash
-./gradlew clean build installDist
+./gradlew shadowJar
 ```
-or on windows `gradlew.bat clean build installDist`
+or on windows `gradlew.bat shadowJar`
+
+
+#### Creating a docker image
+Creating a docker image should be as simple as
+``` bash
+docker build -t docker-kotlin-gradle-ktor-postgres .
+```
+
+#### Running a docker image
+``` bash
+docker run -d --rm -it -p 8080:8080 -e "DATABASE_HOST_URL=db" docker-kotlin-gradle-ktor-postgres
+```
 
 #### Integrasion testing the application
 ### Running the postgresSql db from docker compose
@@ -73,17 +97,6 @@ run this command:
 
 ``` bash
 ./gradlew wrapper --gradle-version latest
-```
-
-#### Creating a docker image
-Creating a docker image should be as simple as
-``` bash
-docker build -t docker-kotlin-gradle-ktor-postgres .
-```
-
-#### Running a docker image
-``` bash
-docker run -d --rm -it -p 8080:8080 -e "DATABASE_HOST_URL=db" docker-kotlin-gradle-ktor-postgres
 ```
 
 ### Contribute
