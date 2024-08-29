@@ -23,6 +23,7 @@ plugins {
     id("application")
     kotlin("jvm") version "2.0.20"
     id("com.diffplug.spotless") version "6.25.0"
+    id("com.gradleup.shadow") version "8.3.0"
 }
 
 application {
@@ -82,6 +83,20 @@ kotlin {
 }
 
 tasks {
+
+    shadowJar {
+        archiveBaseName.set("app")
+        archiveClassifier.set("")
+        isZip64 = true
+        manifest {
+            attributes(
+                mapOf(
+                    "Main-Class" to "io.github.mikaojk.ApplicationKt",
+                ),
+            )
+        }
+    }
+
     test {
         useJUnitPlatform {}
         testLogging {
