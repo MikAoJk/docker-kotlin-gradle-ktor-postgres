@@ -3,7 +3,6 @@ package io.github.mikaojk.api
 import io.github.mikaojk.db.DatabaseInterface
 import io.github.mikaojk.services.ValidateService
 import io.github.mikaojk.services.ValidationData
-import io.ktor.server.application.call
 import io.ktor.server.request.receive
 import io.ktor.server.response.respond
 import io.ktor.server.routing.Routing
