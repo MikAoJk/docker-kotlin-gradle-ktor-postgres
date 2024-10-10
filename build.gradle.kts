@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 group = "io.github.MikAoJk"
 version = "1.0.0"
 
-val ktorVersion = "3.0.0-rc-1"
+val ktorVersion = "3.0.0"
 val junitJupiterVersion = "5.11.1"
 val logbackVersion = "1.5.8"
 val logstashEncoderVersion = "8.0"
