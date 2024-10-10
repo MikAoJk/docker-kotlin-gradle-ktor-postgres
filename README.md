@@ -93,10 +93,10 @@ Example of a response:
 `{"result":"OK"}`
 
 ### Upgrading the gradle wrapper
-run this command:
-
-``` bash
-./gradlew wrapper --gradle-version latest
+Find the newest version of gradle here: https://gradle.org/releases/ Then run this command:
+(Remeber to repealce $gradleVersjon with newest version)
+```shell script
+./gradlew wrapper --gradle-version $gradleVersjon
 ```
 
 ### Contribute

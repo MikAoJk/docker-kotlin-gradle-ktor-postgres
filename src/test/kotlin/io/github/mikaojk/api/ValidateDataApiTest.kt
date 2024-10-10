@@ -8,9 +8,9 @@ import io.github.mikaojk.dropData
 import io.github.mikaojk.services.ValidationData
 import io.github.mikaojk.services.ValidationResult
 import io.ktor.client.call.body
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation as ContentNegotiationClient
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
-import io.ktor.client.plugins.contentnegotiation.ContentNegotiation as ContentNegotiationClient
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders.Accept as AcceptHeader
 import io.ktor.http.HttpHeaders.ContentType as ContentTypeHeader
@@ -39,9 +39,7 @@ internal class ValidateDataApiTest {
     internal fun `Returns OK when input it DATA`() {
         testApplication {
             application {
-                routing {
-                    registerValidateDataApi(database)
-                }
+                routing { registerValidateDataApi(database) }
 
                 install(ContentNegotiationServer) {
                     jackson {
@@ -53,20 +51,19 @@ internal class ValidateDataApiTest {
 
             val validationData = ValidationData("DATA")
 
-            val response = client.post("/v1/validate") {
-                header(ContentTypeHeader, ContentType.Application.Json)
-                header(AcceptHeader, ContentType.Application.Json)
-                setBody(objectMapper.writeValueAsString(validationData))
-            }
+            val response =
+                client.post("/v1/validate") {
+                    header(ContentTypeHeader, ContentType.Application.Json)
+                    header(AcceptHeader, ContentType.Application.Json)
+                    setBody(objectMapper.writeValueAsString(validationData))
+                }
 
             assertEquals(response.status, HttpStatusCode.OK)
             assertEquals(
                 response.bodyAsText(),
                 objectMapper.writeValueAsString(ValidationResult("OK")),
             )
-
         }
-
     }
 
     @Test
