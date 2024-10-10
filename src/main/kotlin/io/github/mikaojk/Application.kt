@@ -2,6 +2,7 @@ package io.github.mikaojk
 
 import io.github.mikaojk.plugins.configureContentNegotiation
 import io.github.mikaojk.plugins.configureCors
+import io.github.mikaojk.plugins.configureLifecycleHooks
 import io.github.mikaojk.plugins.configureRouting
 import io.github.mikaojk.plugins.configureStatusPages
 import io.ktor.server.application.*
@@ -19,11 +20,7 @@ fun main() {
             port = 8080,
             module = Application::module,
         )
-
     embeddedServer.start(true)
-
-    embeddedServer.monitor.subscribe(ApplicationStarted) { logger.info("Application Started!") }
-    embeddedServer.monitor.subscribe(ApplicationStopped) { logger.info("Application Stoped!") }
 }
 
 fun Application.module() {
@@ -31,4 +28,5 @@ fun Application.module() {
     configureContentNegotiation()
     configureCors()
     configureRouting()
+    configureLifecycleHooks()
 }
