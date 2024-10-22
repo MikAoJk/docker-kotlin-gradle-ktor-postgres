@@ -7,5 +7,4 @@ fun Application.configureLifecycleHooks() {
 
     this.monitor.subscribe(ApplicationStarted) { logger.info("Application Started!") }
     this.monitor.subscribe(ApplicationStopped) { logger.info("Application Stoped!") }
-
 }

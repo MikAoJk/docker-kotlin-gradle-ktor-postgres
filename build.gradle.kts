@@ -7,7 +7,7 @@ val ktorVersion = "3.0.0"
 val junitJupiterVersion = "5.11.1"
 val logbackVersion = "1.5.8"
 val logstashEncoderVersion = "8.0"
-val kotlinVersion = "2.0.20"
+val kotlinVersion = "2.0.21"
 val jacksonVersion = "2.18.0"
 val postgresqlVersion = "42.5.4"
 val hikariCPVersion = "6.0.0"
@@ -17,13 +17,14 @@ val postgresVersion = "42.7.4"
 val commonsCodecVersion = "1.17.1"
 val commonsCompressVersion = "1.27.1"
 val ktfmtVersion = "0.44"
+
 val javaVersion = JvmTarget.JVM_21
 
 plugins {
     id("application")
-    kotlin("jvm") version "2.0.20"
+    kotlin("jvm") version "2.0.21"
     id("com.diffplug.spotless") version "6.25.0"
-    id("com.gradleup.shadow") version "8.3.2"
+    id("com.gradleup.shadow") version "8.3.3"
 }
 
 application {
@@ -60,18 +61,7 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     testImplementation("io.ktor:ktor-server-test-host:$ktorVersion")
-    constraints {
-        testImplementation("commons-codec:commons-codec:$commonsCodecVersion") {
-            because("override transient from io.ktor:ktor-server-test-host")
-        }
-    }
     testImplementation("com.opentable.components:otj-pg-embedded:$otjPgEmbeddedVersion")
-    constraints {
-        testImplementation("org.apache.commons:commons-compress:$commonsCompressVersion") {
-            because("override transient from com.opentable.components:otj-pg-embedded")
-        }
-    }
-
     testImplementation("io.ktor:ktor-client-content-negotiation-jvm:$ktorVersion")
 }
 
