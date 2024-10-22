@@ -14,9 +14,10 @@ val hikariCPVersion = "6.0.0"
 val flywayVersion = "10.18.2"
 val otjPgEmbeddedVersion = "1.1.0"
 val postgresVersion = "42.7.4"
-val commonsCodecVersion = "1.17.1"
-val commonsCompressVersion = "1.27.1"
 val ktfmtVersion = "0.44"
+
+// transient
+val commonsCompressVersion = "1.27.1"
 
 val javaVersion = JvmTarget.JVM_21
 
@@ -62,6 +63,11 @@ dependencies {
 
     testImplementation("io.ktor:ktor-server-test-host:$ktorVersion")
     testImplementation("com.opentable.components:otj-pg-embedded:$otjPgEmbeddedVersion")
+    constraints {
+        testImplementation("org.apache.commons:commons-compress:$commonsCompressVersion") {
+            because("override transient from com.opentable.components:otj-pg-embedded")
+        }
+    }
     testImplementation("io.ktor:ktor-client-content-negotiation-jvm:$ktorVersion")
 }
 
