@@ -23,6 +23,17 @@ internal class ValidateServiceTest {
         assertEquals(expectedValidationResult, actualValidateData)
     }
 
+    @Test
+    internal fun `Should return validation result OK when input is OK`() {
+
+        val expectedValidationResult = ValidationResult("OK")
+
+        val validationData = ValidationData(data = "DATA")
+        val actualValidateData = ValidateService().executeValidateData(validationData, database)
+
+        assertEquals(expectedValidationResult, actualValidateData)
+    }
+
     @AfterAll
     internal fun afterAll() {
         database.connection.dropData()

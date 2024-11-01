@@ -5,6 +5,6 @@ import io.ktor.server.application.*
 
 fun Application.configureLifecycleHooks() {
 
-    this.monitor.subscribe(ApplicationStarted) { logger.info("Application Started!") }
-    this.monitor.subscribe(ApplicationStopped) { logger.info("Application Stoped!") }
+    monitor.subscribe(ApplicationStarted) { logger.info("Application Started!") }
+    monitor.subscribe(ApplicationStopped) { logger.info("Application Stoped!") }
 }
