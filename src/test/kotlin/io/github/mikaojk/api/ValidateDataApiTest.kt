@@ -24,16 +24,24 @@ import io.ktor.server.testing.testApplication
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.TestInstance
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class ValidateDataApiTest {
 
-    private val objectMapper: ObjectMapper =
-        ObjectMapper()
-            .registerKotlinModule()
-            .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
-    private val database = TestDB()
+    companion object {
+
+        private val objectMapper: ObjectMapper =
+            ObjectMapper()
+                .registerKotlinModule()
+                .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
+        private val database = TestDB()
+
+        @AfterAll
+        @JvmStatic
+        internal fun afterAll() {
+            database.connection.dropData()
+            database.stop()
+        }
+    }
 
     @Test
     internal fun `Returns OK when input it DATA`() {
@@ -91,22 +99,14 @@ internal class ValidateDataApiTest {
             }
 
             val response =
-                client
-                    .preparePost("/v1/validate") {
-                        accept(ContentType.Application.Json)
-                        contentType(ContentType.Application.Json)
-                        setBody(objectMapper.writeValueAsString(validationData))
-                    }
-                    .execute()
+                client.post("/v1/validate") {
+                    accept(ContentType.Application.Json)
+                    contentType(ContentType.Application.Json)
+                    setBody(objectMapper.writeValueAsString(validationData))
+                }
 
             assertEquals(response.status, HttpStatusCode.OK)
             assertEquals(response.body<ValidationResult>(), ValidationResult("INVALID"))
         }
-    }
-
-    @AfterAll
-    internal fun afterAll() {
-        database.connection.dropData()
-        database.stop()
     }
 }

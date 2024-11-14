@@ -6,8 +6,8 @@ import io.github.mikaojk.plugins.configureLifecycleHooks
 import io.github.mikaojk.plugins.configureRouting
 import io.github.mikaojk.plugins.configureStatusPages
 import io.ktor.server.application.*
+import io.ktor.server.cio.CIO
 import io.ktor.server.engine.*
-import io.ktor.server.netty.*
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -16,7 +16,7 @@ val logger: Logger = LoggerFactory.getLogger("docker-kotlin-gradle-ktor-postgres
 fun main() {
     val embeddedServer =
         embeddedServer(
-            Netty,
+            CIO,
             port = 8080,
             module = Application::module,
         )

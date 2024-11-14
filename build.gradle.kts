@@ -9,17 +9,16 @@ val logbackVersion = "1.5.8"
 val logstashEncoderVersion = "8.0"
 val kotlinVersion = "2.0.21"
 val jacksonVersion = "2.18.0"
-val postgresqlVersion = "42.5.4"
 val hikariCPVersion = "6.0.0"
 val flywayVersion = "10.18.2"
 val otjPgEmbeddedVersion = "1.1.0"
 val postgresVersion = "42.7.4"
 val ktfmtVersion = "0.44"
 
-// transient
-val commonsCompressVersion = "1.27.1"
-
 val javaVersion = JvmTarget.JVM_21
+
+// transient deps
+val commonsCompressVersion = "1.27.1"
 
 plugins {
     id("application")
@@ -39,7 +38,7 @@ repositories {
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
 
-    implementation("io.ktor:ktor-server-netty:$ktorVersion")
+    implementation("io.ktor:ktor-server-cio:$ktorVersion")
     implementation("io.ktor:ktor-serialization-jackson:$ktorVersion")
     implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
     implementation("io.ktor:ktor-server-status-pages:$ktorVersion")
