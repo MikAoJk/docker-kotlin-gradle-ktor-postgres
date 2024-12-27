@@ -71,11 +71,10 @@ docker-compose -p docker-kotlin-gradle-ktor-postgres-compose down
 ### Run the main class in your favoritt IDE(Intellij)
 Go to src/main/kotlin/Application.kt and run the main method
 
-### Testing the endpoint
-
-#### Api doc
+### Api doc
 http://localhost:8080/swagger
 
+### Testing the endpoint
 For testing the endpoint ValidateDataApi
 You need a tool to send a request and to inspect the repsonse
 A tool you can use is Postman: https://www.postman.com/downloads/
@@ -106,6 +105,6 @@ Want to add a feature? see [CONTRIBUTING](CONTRIBUTING.md)
 
 This project is maintained by [CODEOWNERS](CODEOWNERS)
 
-Questions please create an
+Questions? please create an
 [issue](https://github.com/MikAoJk/docker-kotlin-gradle-ktor-postgres/issues)
 
