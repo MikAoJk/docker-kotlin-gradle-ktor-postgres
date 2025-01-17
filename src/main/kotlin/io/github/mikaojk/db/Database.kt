@@ -18,7 +18,7 @@ class Database(private val environmentVariables: EnvironmentVariables) : Databas
         dataSource =
             HikariDataSource(
                 HikariConfig().apply {
-                    jdbcUrl = "jdbc:postgresql://${environmentVariables}:5432/postgres"
+                    jdbcUrl = "jdbc:postgresql://${environmentVariables.databaseHostUrl}:5432/postgres"
                     username = "test"
                     password = "test123"
                     maximumPoolSize = 3
@@ -34,7 +34,7 @@ class Database(private val environmentVariables: EnvironmentVariables) : Databas
 
     private fun runFlywayMigrations() =
         Flyway.configure().run {
-            dataSource("jdbc:postgresql://${environmentVariables}:5432/postgres", "test", "test123")
+            dataSource("jdbc:postgresql://${environmentVariables.databaseHostUrl}:5432/postgres", "test", "test123")
             load().migrate()
         }
 }

@@ -13,7 +13,6 @@ This project is for testing development with docker, kotlin, gradle, ktor and po
 * Docker
 * Ktor
 * Postgres
-* Editorconfig
 
 ## Getting started
 
@@ -39,37 +38,31 @@ docker-compose --version
 ### Running the application locally
 
 #### Building the application
-To build locally and run the integration tests you can simply run
+To build locally and run the tests you can simply run
 ``` bash
 ./gradlew shadowJar
 ```
 or on windows `gradlew.bat shadowJar`
 
 
-#### Creating a docker image
-Creating a docker image should be as simple as
+#### Running the application
 ``` bash
-docker build -t docker-kotlin-gradle-ktor-postgres .
+./gradlew run
 ```
+> **Note**
+> You need to run a postgresSql db se [#Running the postgresSql db from docker compose](#running-the-postgressql-db-from-docker-compose)
 
-#### Running a docker image
-``` bash
-docker run -d --rm -it -p 8080:8080 -e "DATABASE_HOST_URL=db" docker-kotlin-gradle-ktor-postgres
-```
 
-#### Integrasion testing the application
+#### Integration testing the application
 ### Running the postgresSql db from docker compose
 ``` bash
-docker-compose -p docker-kotlin-gradle-ktor-postgres-compose up -d
+docker compose up
 ```
 
 ### Tear down the postgresSql db from docker compose
 ``` bash
-docker-compose -p docker-kotlin-gradle-ktor-postgres-compose down
+docker compose down
 ```
-
-### Run the main class in your favoritt IDE(Intellij)
-Go to src/main/kotlin/Application.kt and run the main method
 
 ### Api doc
 http://localhost:8080/swagger

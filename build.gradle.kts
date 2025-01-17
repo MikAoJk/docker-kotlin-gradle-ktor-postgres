@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 group = "io.github.MikAoJk"
 version = "1.0.0"
 
-val ktorVersion = "3.0.2"
+val ktorVersion = "3.0.3"
 val junitJupiterVersion = "5.11.1"
 val logbackVersion = "1.5.8"
 val logstashEncoderVersion = "8.0"
@@ -13,7 +13,6 @@ val hikariCPVersion = "6.0.0"
 val flywayVersion = "10.18.2"
 val otjPgEmbeddedVersion = "1.1.0"
 val postgresVersion = "42.7.4"
-val ktfmtVersion = "0.44"
 
 val javaVersion = JvmTarget.JVM_21
 
@@ -23,7 +22,6 @@ val commonsCompressVersion = "1.27.1"
 plugins {
     id("application")
     kotlin("jvm") version "2.1.0"
-    id("com.diffplug.spotless") version "6.25.0"
     id("com.gradleup.shadow") version "8.3.5"
 }
 
@@ -101,12 +99,6 @@ tasks {
             showStandardStreams = true
             showStackTraces = true
             exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
-        }
-    }
-    spotless {
-        kotlin { ktfmt(ktfmtVersion).kotlinlangStyle() }
-        check {
-            dependsOn("spotlessApply")
         }
     }
 
