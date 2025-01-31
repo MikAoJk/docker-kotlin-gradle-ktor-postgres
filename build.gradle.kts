@@ -1,3 +1,4 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 group = "io.github.MikAoJk"
@@ -5,7 +6,7 @@ version = "1.0.0"
 
 val ktorVersion = "3.0.3"
 val junitJupiterVersion = "5.11.1"
-val logbackVersion = "1.5.8"
+val logbackVersion = "1.5.16"
 val logstashEncoderVersion = "8.0"
 val kotlinVersion = "2.1.0"
 val jacksonVersion = "2.18.0"
@@ -70,14 +71,12 @@ dependencies {
 
 
 kotlin {
-    compilerOptions {
-        jvmTarget.set(javaVersion)
-    }
+    jvmToolchain(21)
 }
 
 tasks {
 
-    shadowJar {
+    withType<ShadowJar> {
         mergeServiceFiles {
             setPath("META-INF/services/org.flywaydb.core.extensibility.Plugin")
         }
@@ -93,13 +92,16 @@ tasks {
         }
     }
 
-    test {
+    withType<Test> {
         useJUnitPlatform {}
         testLogging {
             showStandardStreams = true
             showStackTraces = true
             exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
         }
+    }
+    withType<Wrapper> {
+        gradleVersion = "8.12"
     }
 
 }
