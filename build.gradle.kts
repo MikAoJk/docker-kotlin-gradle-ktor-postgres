@@ -13,7 +13,7 @@ val jacksonVersion = "2.18.0"
 val hikariCPVersion = "6.0.0"
 val flywayVersion = "10.18.2"
 val otjPgEmbeddedVersion = "1.1.0"
-val postgresVersion = "42.7.4"
+val postgresVersion = "42.7.5"
 
 val javaVersion = JvmTarget.JVM_21
 
