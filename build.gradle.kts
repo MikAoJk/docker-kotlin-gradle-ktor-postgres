@@ -22,7 +22,7 @@ val commonsCompressVersion = "1.27.1"
 
 plugins {
     id("application")
-    kotlin("jvm") version "2.1.20"
+    kotlin("jvm") version "2.1.21"
     id("com.gradleup.shadow") version "8.3.6"
 }
 
