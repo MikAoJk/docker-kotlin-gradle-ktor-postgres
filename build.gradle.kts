@@ -100,8 +100,5 @@ tasks {
             exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
         }
     }
-    withType<Wrapper> {
-        gradleVersion = "8.12"
-    }
 
 }
