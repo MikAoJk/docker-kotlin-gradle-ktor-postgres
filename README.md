@@ -1,4 +1,4 @@
-[![build main branch](https://github.com/MikAoJk/docker-kotlin-gradle-ktor-postgres/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/MikAoJk/docker-kotlin-gradle-ktor-postgres/actions/workflows/build.yml)
+[![build main branch](https://github.com/MikAoJk/docker-kotlin-gradle-ktor-postgres/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/MikAoJk/docker-kotlin-gradle-ktor-postgres/actions/workflows/main.yml)
 ![GitHub issues](https://img.shields.io/github/issues-raw/MikAoJk/docker-kotlin-gradle-ktor-postgres)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/MikAoJk/docker-kotlin-gradle-ktor-postgres)
 ![GitHub](https://img.shields.io/github/license/MikAoJk/docker-kotlin-gradle-ktor-postgres)
