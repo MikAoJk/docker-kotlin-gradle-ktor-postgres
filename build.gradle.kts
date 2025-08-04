@@ -18,7 +18,7 @@ val postgresVersion = "42.7.7"
 val javaVersion = JvmTarget.JVM_21
 
 // transient deps
-val commonsCompressVersion = "1.27.1"
+val commonsCompressVersion = "1.28.0"
 
 plugins {
     id("application")
