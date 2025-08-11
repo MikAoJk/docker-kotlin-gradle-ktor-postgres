@@ -1,5 +1,6 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import kotlinx.coroutines.flow.merge
 
 group = "io.github.MikAoJk"
 version = "1.0.0"
@@ -78,7 +79,6 @@ tasks {
 
     withType<ShadowJar> {
         mergeServiceFiles {
-            setPath("META-INF/services/org.flywaydb.core.extensibility.Plugin")
         }
         archiveBaseName.set("app")
         archiveClassifier.set("")
