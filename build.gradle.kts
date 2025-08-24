@@ -78,12 +78,12 @@ kotlin {
 tasks {
 
     register<Jar>("uberJar") {
+        archiveBaseName.set("app")
 
     manifest {
         attributes["Main-Class"] = "io.github.mikaojk.ApplicationKt"
     }
         
-    archiveClassifier = "uber"
 
     from(sourceSets.main.get().output)
 
