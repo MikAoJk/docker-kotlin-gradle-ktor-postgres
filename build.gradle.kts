@@ -77,21 +77,19 @@ kotlin {
 
 tasks {
 
-    withType<ShadowJar> {
-        mergeServiceFiles {
-       path = "META-INF/services/org.flywaydb.core.extensibility.Plugin"
-        }
-        archiveBaseName.set("app")
-        archiveClassifier.set("")
-        isZip64 = true
-        manifest {
-            attributes(
-                mapOf(
-                    "Main-Class" to "io.github.mikaojk.ApplicationKt",
-                ),
-            )
-        }
+    register<Jar>("uberJar") {
+    manifest {
+        attributes 'Main-Class': 'io.github.mikaojk.ApplicationKt'
     }
+    archiveClassifier = "uber"
+
+    from(sourceSets.main.get().output)
+
+    dependsOn(configurations.runtimeClasspath)
+    from({
+        configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
+    })
+  }
 
     withType<Test> {
         useJUnitPlatform {}
