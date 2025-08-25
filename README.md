@@ -40,9 +40,9 @@ docker-compose --version
 #### Building the application
 To build locally and run the tests you can simply run
 ``` bash
-./gradlew shadowJar
+./gradlew installDist
 ```
-or on windows `gradlew.bat shadowJar`
+or on windows `gradlew.bat installDist`
 
 
 #### Running the application
