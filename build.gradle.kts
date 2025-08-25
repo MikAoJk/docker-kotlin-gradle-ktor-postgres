@@ -77,22 +77,6 @@ kotlin {
 
 tasks {
 
-    register<Jar>("uberJar") {
-        archiveBaseName.set("app")
-
-    manifest {
-        attributes["Main-Class"] = "io.github.mikaojk.ApplicationKt"
-    }
-        
-
-    from(sourceSets.main.get().output)
-
-    dependsOn(configurations.runtimeClasspath)
-    from({
-        configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
-    })
-  }
-
     withType<Test> {
         useJUnitPlatform {}
         testLogging {
