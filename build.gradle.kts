@@ -12,7 +12,7 @@ val logstashEncoderVersion = "8.1"
 val kotlinVersion = "2.2.10"
 val jacksonVersion = "2.20.0"
 val hikariCPVersion = "7.0.2"
-val flywayVersion = "11.11.2"
+val flywayVersion = "11.12.0"
 val otjPgEmbeddedVersion = "1.1.1"
 val postgresVersion = "42.7.7"
 
