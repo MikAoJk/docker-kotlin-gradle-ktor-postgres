@@ -9,7 +9,7 @@ val ktorVersion = "3.4.1"
 val junitJupiterVersion = "6.0.3"
 val logbackVersion = "1.5.32"
 val logstashEncoderVersion = "9.0"
-val kotlinVersion = "2.3.10"
+val kotlinVersion = "2.3.20"
 val jacksonVersion = "2.21.1"
 val hikariCPVersion = "7.0.2"
 val flywayVersion = "12.1.0"
@@ -23,7 +23,7 @@ val commonsCompressVersion = "1.28.0"
 
 plugins {
     id("application")
-    kotlin("jvm") version "2.3.10"
+    kotlin("jvm") version "2.3.20"
     id("com.gradleup.shadow") version "9.4.0"
 }
 
