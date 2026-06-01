@@ -6,7 +6,7 @@ group = "io.github.MikAoJk"
 version = "1.0.0"
 
 val ktorVersion = "3.5.0"
-val junitJupiterVersion = "6.0.3"
+val junitJupiterVersion = "6.1.0"
 val logbackVersion = "1.5.32"
 val logstashEncoderVersion = "9.0"
 val kotlinVersion = "2.3.21"
