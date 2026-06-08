@@ -7,7 +7,7 @@ version = "1.0.0"
 
 val ktorVersion = "3.5.0"
 val junitJupiterVersion = "6.1.0"
-val logbackVersion = "1.5.32"
+val logbackVersion = "1.5.33"
 val logstashEncoderVersion = "9.0"
 val kotlinVersion = "2.3.21"
 val jacksonVersion = "2.21.3"
