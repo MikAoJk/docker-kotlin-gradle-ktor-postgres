@@ -32,6 +32,6 @@ jobs:
       - name: Run tests
         run: |
           ./gradlew test
-      - name: Run clean build
+      - name: Run installDist
         run: |
-          ./gradlew clean build
+          ./gradlew installDist
