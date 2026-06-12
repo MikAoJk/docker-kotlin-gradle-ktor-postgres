@@ -9,7 +9,6 @@ val ktorVersion = "3.5.0"
 val junitJupiterVersion = "6.1.0"
 val logbackVersion = "1.5.33"
 val logstashEncoderVersion = "9.0"
-val kotlinVersion = "2.3.21"
 val jacksonVersion = "2.22.0"
 val hikariCPVersion = "7.0.2"
 val flywayVersion = "12.7.0"
@@ -23,7 +22,7 @@ val commonsCompressVersion = "1.28.0"
 
 plugins {
     id("application")
-    kotlin("jvm") version "2.3.20"
+    kotlin("jvm") version "2.4.0"
     id("com.gradleup.shadow") version "9.4.2"
 }
 
@@ -36,8 +35,6 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
-
     implementation("io.ktor:ktor-server-cio:$ktorVersion")
     implementation("io.ktor:ktor-serialization-jackson:$ktorVersion")
     implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
