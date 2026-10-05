@@ -1,8 +1,5 @@
 package io.github.mikaojk.api
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.SerializationFeature
-import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import io.github.mikaojk.TestDB
 import io.github.mikaojk.dropData
 import io.github.mikaojk.services.ValidationData
@@ -16,7 +13,7 @@ import io.ktor.http.HttpHeaders.Accept as AcceptHeader
 import io.ktor.http.HttpHeaders.ContentType as ContentTypeHeader
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
-import io.ktor.serialization.jackson.jackson
+import io.ktor.serialization.jackson3.jackson
 import io.ktor.server.application.install
 import io.ktor.server.plugins.contentnegotiation.ContentNegotiation as ContentNegotiationServer
 import io.ktor.server.routing.routing
@@ -24,15 +21,14 @@ import io.ktor.server.testing.testApplication
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import tools.jackson.databind.json.JsonMapper
+import tools.jackson.module.kotlin.jacksonMapperBuilder
 
 internal class ValidateDataApiTest {
 
     companion object {
+        private val jsonMapper: JsonMapper = jacksonMapperBuilder().build()
 
-        private val objectMapper: ObjectMapper =
-            ObjectMapper()
-                .registerKotlinModule()
-                .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
         private val database = TestDB()
 
         @AfterAll
@@ -51,8 +47,6 @@ internal class ValidateDataApiTest {
 
                 install(ContentNegotiationServer) {
                     jackson {
-                        registerKotlinModule()
-                        configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
                     }
                 }
             }
@@ -63,13 +57,13 @@ internal class ValidateDataApiTest {
                 client.post("/v1/validate") {
                     header(ContentTypeHeader, ContentType.Application.Json)
                     header(AcceptHeader, ContentType.Application.Json)
-                    setBody(objectMapper.writeValueAsString(validationData))
+                    setBody(jsonMapper.writeValueAsString(validationData))
                 }
 
             assertEquals(response.status, HttpStatusCode.OK)
             assertEquals(
                 response.bodyAsText(),
-                objectMapper.writeValueAsString(ValidationResult("OK")),
+                jsonMapper.writeValueAsString(ValidationResult("OK")),
             )
         }
     }
@@ -81,8 +75,6 @@ internal class ValidateDataApiTest {
                 routing { registerValidateDataApi(database) }
                 install(ContentNegotiationServer) {
                     jackson {
-                        registerKotlinModule()
-                        configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
                     }
                 }
             }
@@ -92,8 +84,6 @@ internal class ValidateDataApiTest {
             val client = createClient {
                 install(ContentNegotiationClient) {
                     jackson {
-                        registerKotlinModule()
-                        configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
                     }
                 }
             }
@@ -102,7 +92,7 @@ internal class ValidateDataApiTest {
                 client.post("/v1/validate") {
                     accept(ContentType.Application.Json)
                     contentType(ContentType.Application.Json)
-                    setBody(objectMapper.writeValueAsString(validationData))
+                    setBody(jsonMapper.writeValueAsString(validationData))
                 }
 
             assertEquals(response.status, HttpStatusCode.OK)

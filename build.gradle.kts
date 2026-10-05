@@ -8,13 +8,13 @@ val ktorVersion = "3.6.0"
 val junitJupiterVersion = "6.1.3"
 val logbackVersion = "1.6.4"
 val logstashEncoderVersion = "9.0"
-val jacksonVersion = "2.22.1"
+val jacksonVersion = "3.2.3"
 val hikariCPVersion = "7.1.0"
 val flywayVersion = "13.8.0"
 val otjPgEmbeddedVersion = "1.1.3"
 val postgresVersion = "42.7.13"
 
-val javaVersion = JvmTarget.JVM_21
+val javaVersion = JvmTarget.JVM_25
 
 // transient deps
 val commonsCompressVersion = "1.28.0"
@@ -34,13 +34,13 @@ repositories {
 
 dependencies {
     implementation("io.ktor:ktor-server-cio:$ktorVersion")
-    implementation("io.ktor:ktor-serialization-jackson:$ktorVersion")
+    implementation("io.ktor:ktor-serialization-jackson3:$ktorVersion")
     implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
     implementation("io.ktor:ktor-server-status-pages:$ktorVersion")
     implementation("io.ktor:ktor-server-swagger:$ktorVersion")
     implementation("io.ktor:ktor-server-cors:$ktorVersion")
 
-    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion")
+    implementation("tools.jackson.core:jackson-databind:$jacksonVersion")
 
     implementation("com.zaxxer:HikariCP:$hikariCPVersion")
     compileOnly("org.flywaydb:flyway-core:$flywayVersion")

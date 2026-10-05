@@ -7,7 +7,7 @@
 This project is for testing development with docker, kotlin, gradle, ktor and postgreSQL
 
 ## Technologies used
-* JDK 21
+* JDK 25
 * Kotlin
 * Gradle
 * Docker
